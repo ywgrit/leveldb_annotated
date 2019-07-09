@@ -35,6 +35,8 @@ bool Reader::SkipToInitialBlock() {
   uint64_t block_start_location = initial_offset_ - offset_in_block;
 
   // Don't search a block if we'd be in the trailer
+  // offset_in_block > kBlockSize - 6，说明已经到了一个Block的尾部，
+  // 尾部填充的是6个空字符。此时只能定位到下一个Block的开头 
   if (offset_in_block > kBlockSize - 6) {
     block_start_location += kBlockSize;
   }
@@ -188,11 +190,17 @@ void Reader::ReportDrop(uint64_t bytes, const Status& reason) {
 
 unsigned int Reader::ReadPhysicalRecord(Slice* result) {
   while (true) {
+    // 两种情况下该条件成立
+    // 1.出现在第一次read，因为buffer_在reader的构造函数里是初始化空
+    // 2.当前buffer_的内容为Block尾部的6个空字符，这时实际上当前Block
+    //   以及解析完了，准备解析下一个Block  
     if (buffer_.size() < kHeaderSize) {
       if (!eof_) {
-        // Last read was a full read, so this is a trailer to skip
+        // Last read was a full read, so this is a trailer to skip 清空buffer_，存储下一个Block
         buffer_.clear();
+        //从文件中每次读取一个Block，Read内部会做偏移，保证按顺序读取
         Status status = file_->Read(kBlockSize, &buffer_, backing_store_);
+        //当前Block结束位置的偏移
         end_of_buffer_offset_ += buffer_.size();
         if (!status.ok()) {
           buffer_.clear();
@@ -200,6 +208,7 @@ unsigned int Reader::ReadPhysicalRecord(Slice* result) {
           eof_ = true;
           return kEof;
         } else if (buffer_.size() < kBlockSize) {
+          // 如果读到的数据小于kBlockSize，也说明到了文件结尾，eof_设为true
           eof_ = true;
         }
         continue;

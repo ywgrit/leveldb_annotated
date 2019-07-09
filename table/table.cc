@@ -27,7 +27,7 @@ struct Table::Rep {
   Options options;
   Status status;
   RandomAccessFile* file;
-  uint64_t cache_id;
+  uint64_t cache_id; //block cache的ID，用于组建block cache结点的key
   FilterBlockReader* filter;
   const char* filter_data;
 

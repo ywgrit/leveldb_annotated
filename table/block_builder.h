@@ -47,7 +47,7 @@ class BlockBuilder {
   std::vector<uint32_t> restarts_;  // Restart points
   int counter_;                     // Number of entries emitted since restart
   bool finished_;                   // Has Finish() been called?
-  std::string last_key_;
+  std::string last_key_;    // 记录最后Add的key。用于获取shared_bytes的大小。
 };
 
 }  // namespace leveldb

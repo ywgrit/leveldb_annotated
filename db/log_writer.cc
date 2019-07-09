@@ -59,6 +59,10 @@ Status Writer::AddRecord(const Slice& slice) {
     const size_t avail = kBlockSize - block_offset_ - kHeaderSize;
     const size_t fragment_length = (left < avail) ? left : avail;
 
+    // 如果新的slice小于avail，则该slice可用整个添加到当前Block中，
+    // 不需要分段，此时type=kFullType
+    // 如果slice大于等于avail，则该slice需要分段存储，如果是第一段
+    // type = kFirstType，如果是最后一段type = kLastType，否则type = kMiddleType
     RecordType type;
     const bool end = (left == fragment_length);
     if (begin && end) {
@@ -71,6 +75,7 @@ Status Writer::AddRecord(const Slice& slice) {
       type = kMiddleType;
     }
 
+    // 将数据组建成指定格式后存储到磁盘
     s = EmitPhysicalRecord(type, ptr, fragment_length);
     ptr += fragment_length;
     left -= fragment_length;

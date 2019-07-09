@@ -55,6 +55,8 @@ Block::~Block() {
 static inline const char* DecodeEntry(const char* p, const char* limit,
                                       uint32_t* shared, uint32_t* non_shared,
                                       uint32_t* value_length) {
+  // 如果最高位都是0, 那么按照压缩规则，每个值只占一个字节，且小于128
+  // 这里相当于做了一个优化，如果三个值之和都小于128，那肯定是每个值只占一个字节
   if (limit - p < 3) return nullptr;
   *shared = reinterpret_cast<const uint8_t*>(p)[0];
   *non_shared = reinterpret_cast<const uint8_t*>(p)[1];
@@ -68,6 +70,8 @@ static inline const char* DecodeEntry(const char* p, const char* limit,
     if ((p = GetVarint32Ptr(p, limit, value_length)) == nullptr) return nullptr;
   }
 
+  // 如果limit中剩下的空间小于*non_shared、*value_length之和，说明limit中
+  // 已经容纳不下记录中的key_delta和value字段了
   if (static_cast<uint32_t>(limit - p) < (*non_shared + *value_length)) {
     return nullptr;
   }
@@ -77,7 +81,7 @@ static inline const char* DecodeEntry(const char* p, const char* limit,
 class Block::Iter : public Iterator {
  private:
   const Comparator* const comparator_;
-  const char* const data_;       // underlying block contents
+  const char* const data_;       // underlying block contents  
   uint32_t const restarts_;      // Offset of restart array (list of fixed32)
   uint32_t const num_restarts_;  // Number of uint32_t entries in restart array
 
@@ -92,6 +96,7 @@ class Block::Iter : public Iterator {
     return comparator_->Compare(a, b);
   }
 
+  // value_是一条记录的最后一个字段，所以这里返回的是下一条记录的偏移量，也就是current_
   // Return the offset in data_ just past the end of the current entry.
   inline uint32_t NextEntryOffset() const {
     return (value_.data() + value_.size()) - data_;
@@ -109,6 +114,8 @@ class Block::Iter : public Iterator {
 
     // ParseNextKey() starts at the end of value_, so set value_ accordingly
     uint32_t offset = GetRestartPoint(index);
+    //value_并不是记录中的value字段，而只是一个指向记录起始位置的0长度指针
+    //这样后面的ParseNextKey函数将会解析出重启点的value字段，并赋值到value_中
     value_ = Slice(data_ + offset, 0);
   }
 
@@ -119,7 +126,7 @@ class Block::Iter : public Iterator {
         data_(data),
         restarts_(restarts),
         num_restarts_(num_restarts),
-        current_(restarts_),
+        current_(restarts_),   //创建一个Block::Itr之后，它是处于invalid状态的，即不能Prev也不能Next；只能先Seek/SeekToxxx之后，才能调用next/prev。
         restart_index_(num_restarts_) {
     assert(num_restarts_ > 0);
   }
@@ -135,11 +142,18 @@ class Block::Iter : public Iterator {
     return value_;
   }
 
+  //向后解析: 解析当前记录的下一个记录
   void Next() override {
     assert(Valid());
     ParseNextKey();
   }
 
+  // 向前解析:
+  // 1.先向前查找当前记录之前的restart
+  // 2.当循环到了第一个restart，其偏移量（0）依然与当前记录的偏移量相等
+  //   说明当前记录就是第一条记录，此时初始化current_和restart_index_，并返回
+  // 3.调用SeekToRestartPoint定位到符合要求的启动点
+  // 4.向后循环解析，直到解析了原记录之前的一条记录，结束
   void Prev() override {
     assert(Valid());
 
@@ -161,6 +175,9 @@ class Block::Iter : public Iterator {
     } while (ParseNextKey() && NextEntryOffset() < original);
   }
 
+  // 1.二分查找，找到key < target的最后一个restart
+  // 2.定位到该restart，其索引由left指定，这是前面二分查找到的结果。
+  // 3.自重启点线性向下查找，直到遇到key>=target的记录或者直到最后一条记录，也不满足key>=target，返回
   void Seek(const Slice& target) override {
     // Binary search in restart array to find the last restart point
     // with a key < target

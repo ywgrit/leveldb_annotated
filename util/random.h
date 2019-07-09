@@ -9,6 +9,16 @@
 
 namespace leveldb {
 
+//C语言中伪随机数生成算法实际上是采用了"线性同余法"。具体的计算如下： 
+//seed = (seed * A + C ) % M
+//其中A,C,M都是常数（一般会取质数）。当C=0时，叫做乘同余法。
+
+//公式1：等式(x<<31)%M == x成立。其中M等于2^31-1
+//计算表达式左边(x << 31) % M，由于x<<31等于x*2^31,
+//则(x << 31) % M=(x*2^31)%M=(x + x*(2^31-1))%M=(x + x*M)%M=x
+
+//公式2：等式(product%M) == (product>>31)+(product&M)，其中M等于2^31-1
+
 // A very simple random number generator.  Not especially good at
 // generating truly random bits, but good enough for our needs in this
 // package.
@@ -17,6 +27,8 @@ class Random {
   uint32_t seed_;
 
  public:
+  // 0x7fffffffu == 2147483647L == 2^31-1 == 01111111 11111111 11111111 11111111
+  // 表达式s & 0x7fffffffu，确保结果值在[0,2147483647]范围内
   explicit Random(uint32_t s) : seed_(s & 0x7fffffffu) {
     // Avoid bad seeds.
     if (seed_ == 0 || seed_ == 2147483647L) {

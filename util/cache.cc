@@ -41,14 +41,14 @@ namespace {
 // are kept in a circular doubly linked list ordered by access time.
 struct LRUHandle {
   void* value;
-  void (*deleter)(const Slice&, void* value);
-  LRUHandle* next_hash;
-  LRUHandle* next;
-  LRUHandle* prev;
-  size_t charge;  // TODO(opt): Only allow uint32_t?
+  void (*deleter)(const Slice&, void* value); //删除器。当refs == 0时，调用deleter完成value对象释放。
+  LRUHandle* next_hash;  // 作为HashTable中的节点，指向hash值相同的节点（解决hash冲突采用链地址法）
+  LRUHandle* next; // 作为LRUCache中的节点，指向后继
+  LRUHandle* prev; // 作为LRUCache中的节点，指向前驱
+  size_t charge;  // TODO(opt): Only allow uint32_t?  用户指定占用缓存的大小
   size_t key_length;
   bool in_cache;     // Whether entry is in the cache.
-  uint32_t refs;     // References, including cache reference, if present.
+  uint32_t refs;     // References, including cache reference, if present. 引用计数
   uint32_t hash;     // Hash of key(); used for fast sharding and comparisons
   char key_data[1];  // Beginning of key
 
@@ -79,6 +79,9 @@ class HandleTable {
     LRUHandle** ptr = FindPointer(h->key(), h->hash);
     LRUHandle* old = *ptr;
     h->next_hash = (old == nullptr ? nullptr : old->next_hash);
+    // 不管找没找到h结点，都是可以直接将h替换到*ptr的。
+    // 1.如果找到了，因为key相同，直接替换相当于替换结点中的value
+    // 2.如果没找到，直接替换是理所当然的了
     *ptr = h;
     if (old == nullptr) {
       ++elems_;
@@ -88,6 +91,7 @@ class HandleTable {
         Resize();
       }
     }
+    //将old返回很重要，因为这个被摘到的handle需要在函数外面销毁。
     return old;
   }
 
@@ -290,6 +294,10 @@ Cache::Handle* LRUCache::Insert(const Slice& key, uint32_t hash, void* value,
     // next is read by key() in an assert, so it must be initialized
     e->next = nullptr;
   }
+
+  // 如果已用容量超过了总容量且头结点lru_还有后继。
+  // 删除lru_的后继结点，根据LRUCache规则，这个结点最近用的最少。
+  // 该结点既要从哈希表中移除，也要从双向链表中移除，然后再释放。  
   while (usage_ > capacity_ && lru_.next != &lru_) {
     LRUHandle* old = lru_.next;
     assert(old->refs == 1);
@@ -332,6 +340,9 @@ void LRUCache::Prune() {
   }
 }
 
+//因为levelDB是多线程的，每个线程访问缓冲区的时候都会将缓冲区锁住。
+//为了多线程访问，尽可能快速，减少锁开销，ShardedLRUCache内部有16个LRUCache。
+//查找Key时首先计算key属于哪一个分片，分片的计算方法是取32位hash值的高4位，然后在相应的LRUCache中进行查找，这样就大大减少了多线程的访问锁的开销。
 static const int kNumShardBits = 4;
 static const int kNumShards = 1 << kNumShardBits;
 

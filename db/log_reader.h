@@ -86,18 +86,18 @@ class Reader {
   void ReportDrop(uint64_t bytes, const Status& reason);
 
   SequentialFile* const file_;
-  Reporter* const reporter_;
-  bool const checksum_;
-  char* const backing_store_;
-  Slice buffer_;
+  Reporter* const reporter_; // 数据损坏报告
+  bool const checksum_;  //是否进行数据校验
+  char* const backing_store_; // read以Block为单位去从磁盘取数据，取完数据就是存在blocking_store_里面。相当于读数据的buffer
+  Slice buffer_; //指向blocking_store_的slice对象，方便对blocking_store_的操作
   bool eof_;  // Last Read() indicated EOF by returning < kBlockSize
 
-  // Offset of the last record returned by ReadRecord.
+  // Offset of the last record returned by ReadRecord. 上一条记录的偏移
   uint64_t last_record_offset_;
-  // Offset of the first location past the end of buffer_.
+  // Offset of the first location past the end of buffer_. 当前Block的结束位置的偏移
   uint64_t end_of_buffer_offset_;
 
-  // Offset at which to start looking for the first record to return
+  // Offset at which to start looking for the first record to return 初始Offset，从该偏移出查找第一条记录
   uint64_t const initial_offset_;
 
   // True if we are resynchronizing after a seek (initial_offset_ > 0). In

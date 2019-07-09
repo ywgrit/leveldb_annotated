@@ -36,15 +36,15 @@ char* Arena::AllocateFallback(size_t bytes) {
 }
 
 char* Arena::AllocateAligned(size_t bytes) {
-  const int align = (sizeof(void*) > 8) ? sizeof(void*) : 8;
+  const int align = (sizeof(void*) > 8) ? sizeof(void*) : 8;  //获取指针大小。在32位系统下是4 ,64位系统下是8。
   static_assert((align & (align - 1)) == 0,
                 "Pointer size should be a power of 2");
-  size_t current_mod = reinterpret_cast<uintptr_t>(alloc_ptr_) & (align - 1);
-  size_t slop = (current_mod == 0 ? 0 : align - current_mod);
-  size_t needed = bytes + slop;
+  size_t current_mod = reinterpret_cast<uintptr_t>(alloc_ptr_) & (align - 1);  //当前指针地址强转无符号整形后，对align取模。
+  size_t slop = (current_mod == 0 ? 0 : align - current_mod); //当前alloc_ptr_还差多少能够字节对齐。
+  size_t needed = bytes + slop;  //需要申请的内存大小，跳过slop
   char* result;
   if (needed <= alloc_bytes_remaining_) {
-    result = alloc_ptr_ + slop;
+    result = alloc_ptr_ + slop; //返回地址需要跳过 slop
     alloc_ptr_ += needed;
     alloc_bytes_remaining_ -= needed;
   } else {

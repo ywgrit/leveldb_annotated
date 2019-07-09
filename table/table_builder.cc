@@ -37,13 +37,13 @@ struct TableBuilder::Rep {
 
   Options options;
   Options index_block_options;
-  WritableFile* file;
-  uint64_t offset;
+  WritableFile* file;  //要生成的.sst文件 
+  uint64_t offset; //累加每个Data Block的偏移量
   Status status;
   BlockBuilder data_block;
   BlockBuilder index_block;
-  std::string last_key;
-  int64_t num_entries;
+  std::string last_key; //上一个插入的key值，新插入的key必须比它大，保证.sst文件中的key是从小到大排列的
+  int64_t num_entries; //.sst文件中存储的所有记录总数。
   bool closed;  // Either Finish() or Abandon() has been called.
   FilterBlockBuilder* filter_block;
 
@@ -56,10 +56,10 @@ struct TableBuilder::Rep {
   // blocks.
   //
   // Invariant: r->pending_index_entry is true only if data_block is empty.
-  bool pending_index_entry;
+  bool pending_index_entry; //当一个Data Block被写入到.sst文件时，为true
   BlockHandle pending_handle;  // Handle to add to index block
 
-  std::string compressed_output;
+  std::string compressed_output;  //Data Block的block_data字段压缩后的结果
 };
 
 TableBuilder::TableBuilder(const Options& options, WritableFile* file)
@@ -99,8 +99,14 @@ void TableBuilder::Add(const Slice& key, const Slice& value) {
     assert(r->options.comparator->Compare(key, Slice(r->last_key)) > 0);
   }
 
+  // 当一个Data Block被写入到磁盘时，为true
   if (r->pending_index_entry) {
+    // 说明到了新的一个Data Block
     assert(r->data_block.empty());
+
+    // 考虑这两个key"the quick brown fox"和"the who"， 进FindShortestSeparator
+    // 处理后，r->last_key=the r。这样的话r->last_key就大于上一个Data Block的
+    // 所有key，并且小于后面所有Data Block的key。    
     r->options.comparator->FindShortestSeparator(&r->last_key, key);
     std::string handle_encoding;
     r->pending_handle.EncodeTo(&handle_encoding);
@@ -116,6 +122,7 @@ void TableBuilder::Add(const Slice& key, const Slice& value) {
   r->num_entries++;
   r->data_block.Add(key, value);
 
+  // 如果Data Block的block_data字段大小满足要求，准备写入到磁盘
   const size_t estimated_block_size = r->data_block.CurrentSizeEstimate();
   if (estimated_block_size >= r->options.block_size) {
     Flush();
@@ -155,13 +162,14 @@ void TableBuilder::WriteBlock(BlockBuilder* block, BlockHandle* handle) {
       block_contents = raw;
       break;
 
+    //采用Snappy压缩，Snappy是谷歌开源的压缩库
     case kSnappyCompression: {
       std::string* compressed = &r->compressed_output;
       if (port::Snappy_Compress(raw.data(), raw.size(), compressed) &&
           compressed->size() < raw.size() - (raw.size() / 8u)) {
         block_contents = *compressed;
       } else {
-        // Snappy not supported, or compressed less than 12.5%, so just
+        // Snappy not supported, or compressed(压缩比) less than 12.5%, so just
         // store uncompressed form
         block_contents = raw;
         type = kNoCompression;
@@ -183,11 +191,16 @@ void TableBuilder::WriteRawBlock(const Slice& block_contents,
   if (r->status.ok()) {
     char trailer[kBlockTrailerSize];
     trailer[0] = type;
+
+    // 为block_contents、type添加校验
     uint32_t crc = crc32c::Value(block_contents.data(), block_contents.size());
     crc = crc32c::Extend(crc, trailer, 1);  // Extend crc to cover block type
+    // 将校验码拷贝到trailer的后四个字节
     EncodeFixed32(trailer + 1, crc32c::Mask(crc));
+    // 向文件尾部添加压缩类型和校验码，这样一个完整的Block Data诞生
     r->status = r->file->Append(Slice(trailer, kBlockTrailerSize));
     if (r->status.ok()) {
+      // 偏移应该包括压缩类型和校验码的大小
       r->offset += block_contents.size() + kBlockTrailerSize;
     }
   }
@@ -195,9 +208,16 @@ void TableBuilder::WriteRawBlock(const Slice& block_contents,
 
 Status TableBuilder::status() const { return rep_->status; }
 
+// 结构
+// 1.data_block
+// 2.filter_block
+// 3.meta_index_block
+// 4.index_block
+// 5.footer
+
 Status TableBuilder::Finish() {
   Rep* r = rep_;
-  Flush();
+  Flush(); // 是因为调用Finish的时候，block_data不一定大于等于block_size，所以要调用Flush,将这部分block_data写入到磁盘
   assert(!r->closed);
   r->closed = true;
 

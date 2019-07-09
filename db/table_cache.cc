@@ -44,7 +44,10 @@ Status TableCache::FindTable(uint64_t file_number, uint64_t file_size,
   char buf[sizeof(file_number)];
   EncodeFixed64(buf, file_number);
   Slice key(buf, sizeof(buf));
+  // 根据key查找指定的文件
   *handle = cache_->Lookup(key);
+
+  // 如果指定文件不存在，打开文件并添加至缓存
   if (*handle == nullptr) {
     std::string fname = TableFileName(dbname_, file_number);
     RandomAccessFile* file = nullptr;
@@ -57,6 +60,7 @@ Status TableCache::FindTable(uint64_t file_number, uint64_t file_size,
       }
     }
     if (s.ok()) {
+      // 将.sst文件映射到table，Table类用于解析.sst文件
       s = Table::Open(options_, file, file_size, &table);
     }
 
@@ -69,6 +73,8 @@ Status TableCache::FindTable(uint64_t file_number, uint64_t file_size,
       TableAndFile* tf = new TableAndFile;
       tf->file = file;
       tf->table = table;
+
+      // 将tf插入到LRUCache中，占据一个大小的缓存，DeleteEntry是删除结点的回调函数
       *handle = cache_->Insert(key, tf, 1, &DeleteEntry);
     }
   }
