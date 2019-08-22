@@ -140,14 +140,17 @@ class InternalKey {
  public:
   InternalKey() {}  // Leave rep_ as empty to indicate it is invalid
   InternalKey(const Slice& user_key, SequenceNumber s, ValueType t) {
+    // 最终的内部键的格式为:[Slice user_key]+[SequenceNumber<<8 + ValueType]，后半部分固定64位，即8字节。
     AppendInternalKey(&rep_, ParsedInternalKey(user_key, s, t));
   }
 
+  // Slice 到 std::string 转换。
   bool DecodeFrom(const Slice& s) {
     rep_.assign(s.data(), s.size());
     return !rep_.empty();
   }
 
+  // std::string 到 Slice 转换。
   Slice Encode() const {
     assert(!rep_.empty());
     return rep_;

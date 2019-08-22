@@ -21,6 +21,7 @@ class MemTable {
  public:
   // MemTables are reference counted.  The initial reference count
   // is zero and the caller must call Ref() at least once.
+  // 在MemTable中是通过InternalKey进行排序的
   explicit MemTable(const InternalKeyComparator& comparator);
 
   MemTable(const MemTable&) = delete;
@@ -72,6 +73,7 @@ class MemTable {
     int operator()(const char* a, const char* b) const;
   };
 
+  // memtable底层是基于skiplist实现的。
   typedef SkipList<const char*, KeyComparator> Table;
 
   ~MemTable();  // Private since only Unref() should be used to delete it

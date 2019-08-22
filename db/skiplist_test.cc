@@ -4,6 +4,7 @@
 
 #include "db/skiplist.h"
 
+#include <iostream>
 #include <atomic>
 #include <set>
 
@@ -219,11 +220,18 @@ class ConcurrentTest {
   void WriteStep(Random* rnd) {
     const uint32_t k = rnd->Next() % K;
     const intptr_t g = current_.Get(k) + 1;
-    const Key key = MakeKey(k, g);
-    list_.Insert(key);
+    const Key mkey = MakeKey(k, g);
+    list_.Insert(mkey);
     current_.Set(k, g);
+    //std::cout << "WriteStep insert: key=" << mkey << "[" << key(mkey) << "," << gen(mkey) << "]" << std::endl;
   }
 
+  // 处理步骤：
+  // 1. 记录当前current_信息。（每次write时会+1）
+  // 2. 随机生成key pos，并查询。
+  // 3.1 可以查询到比pos大的key current，则遍历pos - current之间的key并进行校验。
+  // 3.2 查不到比pos大的key，则取(K,0)为current，并遍历。之后退出读入流程。
+  // 4 获取下一个pos。
   void ReadStep(Random* rnd) {
     // Remember the initial committed state of the skiplist.
     State initial_state;
@@ -233,6 +241,8 @@ class ConcurrentTest {
 
     Key pos = RandomTarget(rnd);
     SkipList<Key, Comparator>::Iterator iter(&list_);
+    //std::cout << "ReadStep begin: pos=" << pos << "[" << key(pos) << "," << gen(pos) << "]" << std::endl;
+    
     iter.Seek(pos);
     while (true) {
       Key current;
@@ -243,6 +253,9 @@ class ConcurrentTest {
         ASSERT_TRUE(IsValidKey(current)) << current;
       }
       ASSERT_LE(pos, current) << "should not go backwards";
+
+      //std::cout << "ReadStep iter: pos=" << pos << "[" << key(pos) << "," << gen(pos) 
+      //          << "], current=" << current << "[" << key(current) << "," << gen(current) << "]" << std::endl;
 
       // Verify that everything in [pos,current) was not present in
       // initial_state.
@@ -262,21 +275,26 @@ class ConcurrentTest {
         } else {
           pos = MakeKey(key(pos), gen(pos) + 1);
         }
+        //std::cout << "ReadStep test: pos=" << pos << "[" << key(pos) << "," << gen(pos)
+        //          << "], current=" << current << "[" << key(current) << "," << gen(current) << "]" << std::endl;
       }
 
       if (!iter.Valid()) {
+        //std::cout << "ReadStep break" << std::endl;
         break;
       }
 
       if (rnd->Next() % 2) {
         iter.Next();
         pos = MakeKey(key(pos), gen(pos) + 1);
+        //std::cout << "ReadStep next: pos=" << pos << "[" << key(pos) << "," << gen(pos) << "]" << std::endl;
       } else {
         Key new_target = RandomTarget(rnd);
         if (new_target > pos) {
           pos = new_target;
           iter.Seek(new_target);
         }
+        //std::cout << "ReadStep next random: pos=" << pos << "[" << key(pos) << "," << gen(pos) << "]" << std::endl;
       }
     }
   }

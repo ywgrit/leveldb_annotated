@@ -67,7 +67,7 @@ class MemTableIterator : public Iterator {
   Status status() const override { return Status::OK(); }
 
  private:
-  MemTable::Table::Iterator iter_;
+  MemTable::Table::Iterator iter_;  //skiplist的iter。
   std::string tmp_;  // For passing to EncodeKey
 };
 
@@ -87,15 +87,19 @@ void MemTable::Add(SequenceNumber s, ValueType type, const Slice& key,
                              internal_key_size + VarintLength(val_size) +
                              val_size;
   char* buf = arena_.Allocate(encoded_len);
-  char* p = EncodeVarint32(buf, internal_key_size);
-  memcpy(p, key.data(), key_size);
+  char* p = EncodeVarint32(buf, internal_key_size); // A: userkey.size + 8 变长编码
+  memcpy(p, key.data(), key_size);                  // B: userkey         
   p += key_size;
-  EncodeFixed64(p, (s << 8) | type);
+  EncodeFixed64(p, (s << 8) | type);                // C: 64位整型顺序号<<8+值类型 64位定长编码后的值
   p += 8;
-  p = EncodeVarint32(p, val_size);
-  memcpy(p, value.data(), val_size);
+  p = EncodeVarint32(p, val_size);                   // value_size 变长编码
+  memcpy(p, value.data(), val_size);                 // value
   assert(p + val_size == buf + encoded_len);
   table_.Insert(buf);
+
+  // memtable_key = A + B + C
+  // internal_key = B + C
+  // user_key = B
 }
 
 bool MemTable::Get(const LookupKey& key, std::string* value, Status* s) {
@@ -113,8 +117,12 @@ bool MemTable::Get(const LookupKey& key, std::string* value, Status* s) {
     // sequence number since the Seek() call above should have skipped
     // all entries with overly large sequence numbers.
     const char* entry = iter.key();
+
+    //key_length = userkey.size + 8
+    //key_ptr = user_key
     uint32_t key_length;
-    const char* key_ptr = GetVarint32Ptr(entry, entry + 5, &key_length);
+    const char* key_ptr = GetVarint32Ptr(entry, entry + 5, &key_length); 
+    //用用户提供的键比较器(默认BytewiseComparator)比较用户键，因为SkipList的Seek不是准确定位
     if (comparator_.comparator.user_comparator()->Compare(
             Slice(key_ptr, key_length - 8), key.user_key()) == 0) {
       // Correct user key
@@ -125,6 +133,7 @@ bool MemTable::Get(const LookupKey& key, std::string* value, Status* s) {
           value->assign(v.data(), v.size());
           return true;
         }
+        // 如果是删除的对象，那么返回的就是没有找到的状态
         case kTypeDeletion:
           *s = Status::NotFound(Slice());
           return true;

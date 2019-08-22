@@ -119,7 +119,7 @@ bool InternalFilterPolicy::KeyMayMatch(const Slice& key, const Slice& f) const {
 
 LookupKey::LookupKey(const Slice& user_key, SequenceNumber s) {
   size_t usize = user_key.size();
-  size_t needed = usize + 13;  // A conservative estimate
+  size_t needed = usize + 13;  // A conservative estimate。 13等于下面的5字节+8字节。
   char* dst;
   if (needed <= sizeof(space_)) {
     dst = space_;
@@ -127,11 +127,11 @@ LookupKey::LookupKey(const Slice& user_key, SequenceNumber s) {
     dst = new char[needed];
   }
   start_ = dst;
-  dst = EncodeVarint32(dst, usize + 8);
+  dst = EncodeVarint32(dst, usize + 8); // 变长，多大5字节
   kstart_ = dst;
   memcpy(dst, user_key.data(), usize);
   dst += usize;
-  EncodeFixed64(dst, PackSequenceAndType(s, kValueTypeForSeek));
+  EncodeFixed64(dst, PackSequenceAndType(s, kValueTypeForSeek)); // 定长，8字节
   dst += 8;
   end_ = dst;
 }

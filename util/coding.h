@@ -39,7 +39,7 @@ void PutFixed32(std::string* dst, uint32_t value);
 void PutFixed64(std::string* dst, uint64_t value);
 void PutVarint32(std::string* dst, uint32_t value);
 void PutVarint64(std::string* dst, uint64_t value);
-void PutLengthPrefixedSlice(std::string* dst, const Slice& value);
+void PutLengthPrefixedSlice(std::string* dst, const Slice& value); //dst： 长度(编码后) + value
 
 //解码
 // Standard Get... routines parse a value from the beginning of a Slice
