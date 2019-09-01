@@ -72,9 +72,18 @@ class CondVar {
   CondVar(const CondVar&) = delete;
   CondVar& operator=(const CondVar&) = delete;
 
+  // 在管理互斥锁的时候，使用的是std::unique_lock而不是std::lock_guard，而且事实上也不能使用std::lock_guard。
+  // 这需要先解释下wait()函数所做的事情。可以看到，在wait()函数之前，使用互斥锁保护了，如果wait的时候什么都没做，岂不是一直持有互斥锁？
+  // 那生产者也会一直卡住，不能够将数据放入队列中了。
+  // 所以，wait()函数会先调用互斥锁的unlock()函数，然后再将自己睡眠，在被唤醒后，又会继续持有锁，保护后面的队列操作。
+  // 而lock_guard没有lock和unlock接口，而unique_lock提供了。这就是必须使用unique_lock的原因。
+
+
+  // std::adopt_lock参数的作用：表示这个互斥量已经被lock了（你必须要把互斥量提前lock了 ，否者会报异常）；
+  // unique_lock也可以带std::adopt_lock标记，就是不希望再unique_lock()的构造函数中lock这个mutex。
   void Wait() {
     std::unique_lock<std::mutex> lock(mu_->mu_, std::adopt_lock);
-    cv_.wait(lock);
+    cv_.wait(lock); // Unlock lock and wait to be notified
     lock.release();
   }
   void Signal() { cv_.notify_one(); }

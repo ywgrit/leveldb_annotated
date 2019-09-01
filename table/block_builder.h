@@ -43,7 +43,7 @@ class BlockBuilder {
 
  private:
   const Options* options_;
-  std::string buffer_;              // Destination buffer
+  std::string buffer_;              // Destination buffer. Buffer_代表当前数据块
   std::vector<uint32_t> restarts_;  // Restart points
   int counter_;                     // Number of entries emitted since restart
   bool finished_;                   // Has Finish() been called?

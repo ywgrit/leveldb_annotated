@@ -420,6 +420,8 @@ Status Version::Get(const ReadOptions& options, const LookupKey& k,
   return Status::NotFound(Slice());  // Use an empty error message for speed
 }
 
+// 更新统计信息时，直接将记录的文件的 leveldb::FileMetaData 的 allowed_seeks 减一
+// 当 allowed_seeks <= ０时，表示读取效率很低，需要执行 Compaction，减少这条路径上的文件数量。
 bool Version::UpdateStats(const GetStats& stats) {
   FileMetaData* f = stats.seek_file;
   if (f != nullptr) {

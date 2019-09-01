@@ -2,9 +2,10 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file. See the AUTHORS file for names of contributors.
 //
+// rep_ 一个string成员变量，来存放所有操作
 // WriteBatch::rep_ :=
-//    sequence: fixed64
-//    count: fixed32
+//    sequence: fixed64 WriteBatch的序列号，8字节
+//    count: fixed32 当前Batch中的记录数，4字节
 //    data: record[count]
 // record :=
 //    kTypeValue varstring varstring         |
@@ -24,6 +25,7 @@
 namespace leveldb {
 
 // WriteBatch header has an 8-byte sequence number followed by a 4-byte count.
+// 每个WriteBatch都包含一个kHeader，总共12字节(seq+count)。如果WriteBatch追加，需要去掉kHeader。
 static const size_t kHeader = 12;
 
 WriteBatch::WriteBatch() { Clear(); }
@@ -96,7 +98,7 @@ void WriteBatchInternal::SetSequence(WriteBatch* b, SequenceNumber seq) {
 }
 
 void WriteBatch::Put(const Slice& key, const Slice& value) {
-  WriteBatchInternal::SetCount(this, WriteBatchInternal::Count(this) + 1);
+  WriteBatchInternal::SetCount(this, WriteBatchInternal::Count(this) + 1); //增加记录数
   rep_.push_back(static_cast<char>(kTypeValue));
   PutLengthPrefixedSlice(&rep_, key);
   PutLengthPrefixedSlice(&rep_, value);
@@ -142,9 +144,9 @@ void WriteBatchInternal::SetContents(WriteBatch* b, const Slice& contents) {
 }
 
 void WriteBatchInternal::Append(WriteBatch* dst, const WriteBatch* src) {
-  SetCount(dst, Count(dst) + Count(src));
+  SetCount(dst, Count(dst) + Count(src)); // 更改记录数。
   assert(src->rep_.size() >= kHeader);
-  dst->rep_.append(src->rep_.data() + kHeader, src->rep_.size() - kHeader);
+  dst->rep_.append(src->rep_.data() + kHeader, src->rep_.size() - kHeader); // src去掉kHeader后，只将记录区追加。
 }
 
 }  // namespace leveldb

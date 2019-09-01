@@ -99,6 +99,7 @@ void TableBuilder::Add(const Slice& key, const Slice& value) {
     assert(r->options.comparator->Compare(key, Slice(r->last_key)) > 0);
   }
 
+  // 1.构建index_block
   // 当一个Data Block被写入到磁盘时，为true
   if (r->pending_index_entry) {
     // 说明到了新的一个Data Block
@@ -114,14 +115,17 @@ void TableBuilder::Add(const Slice& key, const Slice& value) {
     r->pending_index_entry = false;
   }
 
+  // 2. 构建过滤器
   if (r->filter_block != nullptr) {
     r->filter_block->AddKey(key);
   }
 
+  // 3. 记录数据
   r->last_key.assign(key.data(), key.size());
   r->num_entries++;
   r->data_block.Add(key, value);
 
+  //4. 数据块(Data Block)大小已达上限，写入文件
   // 如果Data Block的block_data字段大小满足要求，准备写入到磁盘
   const size_t estimated_block_size = r->data_block.CurrentSizeEstimate();
   if (estimated_block_size >= r->options.block_size) {
@@ -214,7 +218,6 @@ Status TableBuilder::status() const { return rep_->status; }
 // 3.meta_index_block
 // 4.index_block
 // 5.footer
-
 Status TableBuilder::Finish() {
   Rep* r = rep_;
   Flush(); // 是因为调用Finish的时候，block_data不一定大于等于block_size，所以要调用Flush,将这部分block_data写入到磁盘

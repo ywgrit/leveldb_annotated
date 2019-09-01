@@ -51,6 +51,10 @@ class Footer {
   // Encoded length of a Footer.  Note that the serialization of a
   // Footer will always occupy exactly this many bytes.  It consists
   // of two block handles and a magic number.
+  // metaindex_handle_ 最大10
+  // index_handle_     最大10
+  // kTableMagicNumber低32位 最大4
+  // metaindex_handle_高32位 最大4
   enum { kEncodedLength = 2 * BlockHandle::kMaxEncodedLength + 8 };
 
   Footer() = default;

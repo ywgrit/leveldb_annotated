@@ -13,6 +13,7 @@
 // for a particular key.  Values are stored as-is (without compression)
 // immediately following the corresponding key.
 //
+// 一条entry的结构：<shared><non_shared><value_size><key非共享内容><value内容>
 // An entry for a particular key-value pair has the form:
 //     shared_bytes: varint32
 //     unshared_bytes: varint32
@@ -25,6 +26,9 @@
 //     restarts: uint32[num_restarts]
 //     num_restarts: uint32
 // restarts[i] contains the offset within the block of the ith restart point.
+
+// Block结构：<entry1><entry2><...><entryn><restart1><restart...><restartm><restarts_num>
+
 
 #include "table/block_builder.h"
 
@@ -74,7 +78,7 @@ void BlockBuilder::Add(const Slice& key, const Slice& value) {
   assert(!finished_);
   assert(counter_ <= options_->block_restart_interval);
   assert(buffer_.empty()  // No values yet?
-         || options_->comparator->Compare(key, last_key_piece) > 0);
+         || options_->comparator->Compare(key, last_key_piece) > 0); //排好序的
   size_t shared = 0;
   if (counter_ < options_->block_restart_interval) {
     // See how much sharing to do with previous string
@@ -84,7 +88,7 @@ void BlockBuilder::Add(const Slice& key, const Slice& value) {
     }
   } else {
     // Restart compression
-    restarts_.push_back(buffer_.size());
+    restarts_.push_back(buffer_.size()); //记录restarts。buffer_.size()为当前数据块偏移
     counter_ = 0;
   }
   const size_t non_shared = key.size() - shared;
