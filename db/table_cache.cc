@@ -44,7 +44,7 @@ Status TableCache::FindTable(uint64_t file_number, uint64_t file_size,
   char buf[sizeof(file_number)];
   EncodeFixed64(buf, file_number);
   Slice key(buf, sizeof(buf));
-  // 根据key查找指定的文件
+  // 根据key查找指定的文件。key为
   *handle = cache_->Lookup(key);
 
   // 如果指定文件不存在，打开文件并添加至缓存

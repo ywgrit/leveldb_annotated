@@ -71,6 +71,7 @@ struct DBImpl::CompactionState {
 
   Compaction* const compaction;
 
+  // 小于smallest_snapshot的记录可以删除。
   // Sequence numbers < smallest_snapshot are not significant since we
   // will never have to service a snapshot below smallest_snapshot.
   // Therefore if we have seen a sequence number S <= smallest_snapshot,
@@ -509,6 +510,7 @@ Status DBImpl::WriteLevel0Table(MemTable* mem, VersionEdit* edit,
   Status s;
   {
     mutex_.Unlock();
+    //新生成一个Table_builder负责写文件
     s = BuildTable(dbname_, env_, options_, table_cache_, iter, &meta);
     mutex_.Lock();
   }
@@ -577,13 +579,19 @@ void DBImpl::CompactRange(const Slice* begin, const Slice* end) {
   {
     MutexLock l(&mutex_);
     Version* base = versions_->current();
+
+    // 遍历所有level， 获取重叠的最大层级。
     for (int level = 1; level < config::kNumLevels; level++) {
       if (base->OverlapInLevel(level, begin, end)) {
         max_level_with_files = level;
       }
     }
   }
+
+  // 该操作的目的是什么？为什么不放在OverlapInLevel之前？
   TEST_CompactMemTable();  // TODO(sanjay): Skip if memtable does not overlap
+
+  // 遍历重叠的层级进行major compation
   for (int level = 0; level < max_level_with_files; level++) {
     TEST_CompactRange(level, begin, end);
   }
@@ -695,6 +703,7 @@ void DBImpl::BackgroundCall() {
 void DBImpl::BackgroundCompaction() {
   mutex_.AssertHeld();
 
+  //如果immutable不为空，需要将immutable dump到level 0
   if (imm_ != nullptr) {
     CompactMemTable();
     return;
@@ -703,7 +712,7 @@ void DBImpl::BackgroundCompaction() {
   Compaction* c;
   bool is_manual = (manual_compaction_ != nullptr);
   InternalKey manual_end;
-  if (is_manual) {
+  if (is_manual) {  //Manual Compaction
     ManualCompaction* m = manual_compaction_;
     c = versions_->CompactRange(m->level, m->begin, m->end);
     m->done = (c == nullptr);
@@ -716,20 +725,21 @@ void DBImpl::BackgroundCompaction() {
         (m->end ? m->end->DebugString().c_str() : "(end)"),
         (m->done ? "(end)" : manual_end.DebugString().c_str()));
   } else {
-    c = versions_->PickCompaction();
+    c = versions_->PickCompaction();  //选取压缩方式，Size/Seek Compaction
   }
 
   Status status;
   if (c == nullptr) {
     // Nothing to do
   } else if (!is_manual && c->IsTrivialMove()) {
+    // // trivial compaction，直接将当前level上需要compaction的sst移动到下一层，不需要进行合并操作.
     // Move file to next level
     assert(c->num_input_files(0) == 1);
     FileMetaData* f = c->input(0, 0);
     c->edit()->DeleteFile(c->level(), f->number);
     c->edit()->AddFile(c->level() + 1, f->number, f->file_size, f->smallest,
                        f->largest);
-    status = versions_->LogAndApply(c->edit(), &mutex_);
+    status = versions_->LogAndApply(c->edit(), &mutex_); //写入version
     if (!status.ok()) {
       RecordBackgroundError(status);
     }
@@ -740,13 +750,13 @@ void DBImpl::BackgroundCompaction() {
         status.ToString().c_str(), versions_->LevelSummary(&tmp));
   } else {
     CompactionState* compact = new CompactionState(c);
-    status = DoCompactionWork(compact);
+    status = DoCompactionWork(compact);  // 真正进行compaction的地方
     if (!status.ok()) {
       RecordBackgroundError(status);
     }
-    CleanupCompaction(compact);
-    c->ReleaseInputs();
-    DeleteObsoleteFiles();
+    CleanupCompaction(compact);  //清理compact过程中的临时变量
+    c->ReleaseInputs();          //清除输入文件描述符
+    DeleteObsoleteFiles();       //删除无引用的文件
   }
   delete c;
 
@@ -871,14 +881,19 @@ Status DBImpl::InstallCompactionResults(CompactionState* compact) {
       compact->compaction->num_input_files(1), compact->compaction->level() + 1,
       static_cast<long long>(compact->total_bytes));
 
+  // compaction完成后被合并的sst在新版本中就没有用了，将这些文件加入到VersionEdit的deleted_files_中
   // Add compaction outputs
   compact->compaction->AddInputDeletions(compact->compaction->edit());
+
+  // 将新生成的sst文件加入到VersionEdit的new_files_中
   const int level = compact->compaction->level();
   for (size_t i = 0; i < compact->outputs.size(); i++) {
     const CompactionState::Output& out = compact->outputs[i];
     compact->compaction->edit()->AddFile(level + 1, out.number, out.file_size,
                                          out.smallest, out.largest);
   }
+
+  // LogAndApply会根据VerionEdit中deleted_files_和new_files_生成一个新的Version
   return versions_->LogAndApply(compact->compaction->edit(), &mutex_);
 }
 
@@ -894,12 +909,17 @@ Status DBImpl::DoCompactionWork(CompactionState* compact) {
   assert(versions_->NumLevelFiles(compact->compaction->level()) > 0);
   assert(compact->builder == nullptr);
   assert(compact->outfile == nullptr);
+
+  // 将snapshot相关的内容记录到compact信息中
   if (snapshots_.empty()) {
     compact->smallest_snapshot = versions_->LastSequence();
   } else {
     compact->smallest_snapshot = snapshots_.oldest()->sequence_number();
   }
 
+  // 这里生成一个MergingIterator，相当于在遍历要合并的sst文件时，同时进行多路归并排序
+  // MergingIterator内部维护了n个Iterator，每个Iterator指向一个sst，进行迭代时，MergingIterator
+  // 会找所有Iterators所指key中的最小那个，这样就完成了多路归并排序
   Iterator* input = versions_->MakeInputIterator(compact->compaction);
 
   // Release mutex while we're actually doing the compaction work
@@ -1033,7 +1053,7 @@ Status DBImpl::DoCompactionWork(CompactionState* compact) {
   stats_[compact->compaction->level() + 1].Add(stats);
 
   if (status.ok()) {
-    status = InstallCompactionResults(compact);
+    status = InstallCompactionResults(compact);   // 将新生成的sst 加入到Version中
   }
   if (!status.ok()) {
     RecordBackgroundError(status);

@@ -96,9 +96,9 @@ class VersionEdit {
   bool has_next_file_number_;
   bool has_last_sequence_;
 
-  std::vector<std::pair<int, InternalKey>> compact_pointers_;
+  std::vector<std::pair<int, InternalKey>> compact_pointers_;  // <level, 对应level的下次compation启动的key>
   DeletedFileSet deleted_files_;
-  std::vector<std::pair<int, FileMetaData>> new_files_;
+  std::vector<std::pair<int, FileMetaData>> new_files_;  // <level，文件描述信息>
 };
 
 }  // namespace leveldb
