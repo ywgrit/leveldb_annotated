@@ -1,0 +1,1402 @@
+[
+    {
+        "arguments": [
+            "/usr/bin/c++",
+            "-c",
+            "-DLEVELDB_PLATFORM_POSIX=1",
+            "-I/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb/build/include",
+            "-I/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb",
+            "-I/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb/include",
+            "-g",
+            "-std=c++11",
+            "-o",
+            "CMakeFiles/bloom_test.dir/util/bloom_test.cc.o",
+            "../util/bloom_test.cc"
+        ],
+        "directory": "/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb/build",
+        "file": "../util/bloom_test.cc"
+    },
+    {
+        "arguments": [
+            "/usr/bin/c++",
+            "-c",
+            "-DLEVELDB_PLATFORM_POSIX=1",
+            "-I/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb/build/include",
+            "-I/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb",
+            "-I/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb/include",
+            "-g",
+            "-std=c++11",
+            "-o",
+            "CMakeFiles/db_bench.dir/util/histogram.cc.o",
+            "../util/histogram.cc"
+        ],
+        "directory": "/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb/build",
+        "file": "../util/histogram.cc"
+    },
+    {
+        "arguments": [
+            "/usr/bin/c++",
+            "-c",
+            "-DLEVELDB_PLATFORM_POSIX=1",
+            "-I/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb/build/include",
+            "-I/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb",
+            "-I/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb/include",
+            "-g",
+            "-std=c++11",
+            "-o",
+            "CMakeFiles/cache_test.dir/util/cache_test.cc.o",
+            "../util/cache_test.cc"
+        ],
+        "directory": "/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb/build",
+        "file": "../util/cache_test.cc"
+    },
+    {
+        "arguments": [
+            "/usr/bin/c++",
+            "-c",
+            "-DLEVELDB_PLATFORM_POSIX=1",
+            "-I/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb/build/include",
+            "-I/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb",
+            "-I/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb/include",
+            "-g",
+            "-std=c++11",
+            "-o",
+            "CMakeFiles/memenv_test.dir/helpers/memenv/memenv_test.cc.o",
+            "../helpers/memenv/memenv_test.cc"
+        ],
+        "directory": "/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb/build",
+        "file": "../helpers/memenv/memenv_test.cc"
+    },
+    {
+        "arguments": [
+            "/usr/bin/c++",
+            "-c",
+            "-DLEVELDB_PLATFORM_POSIX=1",
+            "-I/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb/build/include",
+            "-I/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb",
+            "-I/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb/include",
+            "-g",
+            "-std=c++11",
+            "-o",
+            "CMakeFiles/autocompact_test.dir/db/autocompact_test.cc.o",
+            "../db/autocompact_test.cc"
+        ],
+        "directory": "/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb/build",
+        "file": "../db/autocompact_test.cc"
+    },
+    {
+        "arguments": [
+            "/usr/bin/c++",
+            "-c",
+            "-DLEVELDB_PLATFORM_POSIX=1",
+            "-I/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb/build/include",
+            "-I/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb",
+            "-I/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb/include",
+            "-g",
+            "-std=c++11",
+            "-o",
+            "CMakeFiles/log_test.dir/db/log_test.cc.o",
+            "../db/log_test.cc"
+        ],
+        "directory": "/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb/build",
+        "file": "../db/log_test.cc"
+    },
+    {
+        "arguments": [
+            "/usr/bin/c++",
+            "-c",
+            "-DLEVELDB_PLATFORM_POSIX=1",
+            "-I/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb/build/include",
+            "-I/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb",
+            "-I/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb/include",
+            "-g",
+            "-std=c++11",
+            "-o",
+            "CMakeFiles/db_bench.dir/util/testutil.cc.o",
+            "../util/testutil.cc"
+        ],
+        "directory": "/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb/build",
+        "file": "../util/testutil.cc"
+    },
+    {
+        "arguments": [
+            "/usr/bin/c++",
+            "-c",
+            "-DLEVELDB_COMPILE_LIBRARY",
+            "-DLEVELDB_PLATFORM_POSIX=1",
+            "-I/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb/build/include",
+            "-I/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb",
+            "-I/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb/include",
+            "-g",
+            "-std=c++11",
+            "-o",
+            "CMakeFiles/leveldb.dir/util/logging.cc.o",
+            "../util/logging.cc"
+        ],
+        "directory": "/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb/build",
+        "file": "../util/logging.cc"
+    },
+    {
+        "arguments": [
+            "/usr/bin/c++",
+            "-c",
+            "-DLEVELDB_COMPILE_LIBRARY",
+            "-DLEVELDB_PLATFORM_POSIX=1",
+            "-I/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb/build/include",
+            "-I/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb",
+            "-I/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb/include",
+            "-g",
+            "-std=c++11",
+            "-o",
+            "CMakeFiles/leveldb.dir/util/arena.cc.o",
+            "../util/arena.cc"
+        ],
+        "directory": "/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb/build",
+        "file": "../util/arena.cc"
+    },
+    {
+        "arguments": [
+            "/usr/bin/c++",
+            "-c",
+            "-DLEVELDB_COMPILE_LIBRARY",
+            "-DLEVELDB_PLATFORM_POSIX=1",
+            "-I/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb/build/include",
+            "-I/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb",
+            "-I/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb/include",
+            "-g",
+            "-std=c++11",
+            "-o",
+            "CMakeFiles/leveldb.dir/db/dumpfile.cc.o",
+            "../db/dumpfile.cc"
+        ],
+        "directory": "/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb/build",
+        "file": "../db/dumpfile.cc"
+    },
+    {
+        "arguments": [
+            "/usr/bin/c++",
+            "-c",
+            "-DLEVELDB_PLATFORM_POSIX=1",
+            "-I/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb/build/include",
+            "-I/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb",
+            "-I/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb/include",
+            "-g",
+            "-std=c++11",
+            "-o",
+            "CMakeFiles/skiplist_test.dir/db/skiplist_test.cc.o",
+            "../db/skiplist_test.cc"
+        ],
+        "directory": "/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb/build",
+        "file": "../db/skiplist_test.cc"
+    },
+    {
+        "arguments": [
+            "/usr/bin/c++",
+            "-c",
+            "-DLEVELDB_COMPILE_LIBRARY",
+            "-DLEVELDB_PLATFORM_POSIX=1",
+            "-I/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb/build/include",
+            "-I/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb",
+            "-I/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb/include",
+            "-g",
+            "-std=c++11",
+            "-o",
+            "CMakeFiles/leveldb.dir/db/memtable.cc.o",
+            "../db/memtable.cc"
+        ],
+        "directory": "/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb/build",
+        "file": "../db/memtable.cc"
+    },
+    {
+        "arguments": [
+            "/usr/bin/c++",
+            "-c",
+            "-DLEVELDB_COMPILE_LIBRARY",
+            "-DLEVELDB_PLATFORM_POSIX=1",
+            "-I/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb/build/include",
+            "-I/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb",
+            "-I/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb/include",
+            "-g",
+            "-std=c++11",
+            "-o",
+            "CMakeFiles/leveldb.dir/db/filename.cc.o",
+            "../db/filename.cc"
+        ],
+        "directory": "/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb/build",
+        "file": "../db/filename.cc"
+    },
+    {
+        "arguments": [
+            "/usr/bin/c++",
+            "-c",
+            "-DLEVELDB_PLATFORM_POSIX=1",
+            "-I/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb/build/include",
+            "-I/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb",
+            "-I/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb/include",
+            "-g",
+            "-std=c++11",
+            "-o",
+            "CMakeFiles/recovery_test.dir/db/recovery_test.cc.o",
+            "../db/recovery_test.cc"
+        ],
+        "directory": "/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb/build",
+        "file": "../db/recovery_test.cc"
+    },
+    {
+        "arguments": [
+            "/usr/bin/c++",
+            "-c",
+            "-DLEVELDB_PLATFORM_POSIX=1",
+            "-I/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb/build/include",
+            "-I/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb",
+            "-I/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb/include",
+            "-g",
+            "-std=c++11",
+            "-o",
+            "CMakeFiles/db_test.dir/db/db_test.cc.o",
+            "../db/db_test.cc"
+        ],
+        "directory": "/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb/build",
+        "file": "../db/db_test.cc"
+    },
+    {
+        "arguments": [
+            "/usr/bin/c++",
+            "-c",
+            "-DLEVELDB_PLATFORM_POSIX=1",
+            "-I/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb/build/include",
+            "-I/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb",
+            "-I/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb/include",
+            "-g",
+            "-std=c++11",
+            "-o",
+            "CMakeFiles/write_batch_test.dir/db/write_batch_test.cc.o",
+            "../db/write_batch_test.cc"
+        ],
+        "directory": "/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb/build",
+        "file": "../db/write_batch_test.cc"
+    },
+    {
+        "arguments": [
+            "/usr/bin/c++",
+            "-c",
+            "-v",
+            "-o",
+            "CMakeFiles/cmTC_1fb07.dir/CMakeCXXCompilerABI.cpp.o",
+            "../../../../../../../../../../../../usr/share/cmake-3.18/Modules/CMakeCXXCompilerABI.cpp"
+        ],
+        "directory": "/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb/build/CMakeFiles/CMakeTmp",
+        "file": "../../../../../../../../../../../../usr/share/cmake-3.18/Modules/CMakeCXXCompilerABI.cpp"
+    },
+    {
+        "arguments": [
+            "/usr/bin/c++",
+            "-c",
+            "-DLEVELDB_COMPILE_LIBRARY",
+            "-DLEVELDB_PLATFORM_POSIX=1",
+            "-I/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb/build/include",
+            "-I/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb",
+            "-I/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb/include",
+            "-g",
+            "-std=c++11",
+            "-o",
+            "CMakeFiles/leveldb.dir/util/crc32c.cc.o",
+            "../util/crc32c.cc"
+        ],
+        "directory": "/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb/build",
+        "file": "../util/crc32c.cc"
+    },
+    {
+        "arguments": [
+            "/usr/bin/c++",
+            "-c",
+            "-DLEVELDB_COMPILE_LIBRARY",
+            "-DLEVELDB_PLATFORM_POSIX=1",
+            "-I/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb/build/include",
+            "-I/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb",
+            "-I/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb/include",
+            "-g",
+            "-std=c++11",
+            "-o",
+            "CMakeFiles/leveldb.dir/util/hash.cc.o",
+            "../util/hash.cc"
+        ],
+        "directory": "/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb/build",
+        "file": "../util/hash.cc"
+    },
+    {
+        "arguments": [
+            "/usr/bin/c++",
+            "-c",
+            "-DLEVELDB_PLATFORM_POSIX=1",
+            "-I/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb/build/include",
+            "-I/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb",
+            "-I/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb/include",
+            "-g",
+            "-std=c++11",
+            "-o",
+            "CMakeFiles/filename_test.dir/db/filename_test.cc.o",
+            "../db/filename_test.cc"
+        ],
+        "directory": "/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb/build",
+        "file": "../db/filename_test.cc"
+    },
+    {
+        "arguments": [
+            "/usr/bin/c++",
+            "-c",
+            "-DLEVELDB_PLATFORM_POSIX=1",
+            "-I/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb/build/include",
+            "-I/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb",
+            "-I/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb/include",
+            "-g",
+            "-std=c++11",
+            "-o",
+            "CMakeFiles/issue178_test.dir/issues/issue178_test.cc.o",
+            "../issues/issue178_test.cc"
+        ],
+        "directory": "/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb/build",
+        "file": "../issues/issue178_test.cc"
+    },
+    {
+        "arguments": [
+            "/usr/bin/cc",
+            "-c",
+            "-DCHECK_FUNCTION_EXISTS=crc32c_value",
+            "-std=c11",
+            "-o",
+            "CMakeFiles/cmTC_dfe99.dir/CheckFunctionExists.c.o",
+            "../../../../../../../../../../../../usr/share/cmake-3.18/Modules/CheckFunctionExists.c"
+        ],
+        "directory": "/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb/build/CMakeFiles/CMakeTmp",
+        "file": "../../../../../../../../../../../../usr/share/cmake-3.18/Modules/CheckFunctionExists.c"
+    },
+    {
+        "arguments": [
+            "/usr/bin/c++",
+            "-c",
+            "-DLEVELDB_COMPILE_LIBRARY",
+            "-DLEVELDB_PLATFORM_POSIX=1",
+            "-I/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb/build/include",
+            "-I/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb",
+            "-I/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb/include",
+            "-g",
+            "-std=c++11",
+            "-o",
+            "CMakeFiles/leveldb.dir/util/comparator.cc.o",
+            "../util/comparator.cc"
+        ],
+        "directory": "/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb/build",
+        "file": "../util/comparator.cc"
+    },
+    {
+        "arguments": [
+            "/usr/bin/c++",
+            "-c",
+            "-DLEVELDB_COMPILE_LIBRARY",
+            "-DLEVELDB_PLATFORM_POSIX=1",
+            "-I/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb/build/include",
+            "-I/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb",
+            "-I/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb/include",
+            "-g",
+            "-std=c++11",
+            "-o",
+            "CMakeFiles/leveldb.dir/db/c.cc.o",
+            "../db/c.cc"
+        ],
+        "directory": "/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb/build",
+        "file": "../db/c.cc"
+    },
+    {
+        "arguments": [
+            "/usr/bin/c++",
+            "-c",
+            "-DLEVELDB_COMPILE_LIBRARY",
+            "-DLEVELDB_PLATFORM_POSIX=1",
+            "-I/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb/build/include",
+            "-I/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb",
+            "-I/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb/include",
+            "-g",
+            "-std=c++11",
+            "-o",
+            "CMakeFiles/leveldb.dir/db/log_writer.cc.o",
+            "../db/log_writer.cc"
+        ],
+        "directory": "/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb/build",
+        "file": "../db/log_writer.cc"
+    },
+    {
+        "arguments": [
+            "/usr/bin/cc",
+            "-c",
+            "-v",
+            "-o",
+            "CMakeFiles/cmTC_841d5.dir/CMakeCCompilerABI.c.o",
+            "../../../../../../../../../../../../usr/share/cmake-3.18/Modules/CMakeCCompilerABI.c"
+        ],
+        "directory": "/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb/build/CMakeFiles/CMakeTmp",
+        "file": "../../../../../../../../../../../../usr/share/cmake-3.18/Modules/CMakeCCompilerABI.c"
+    },
+    {
+        "arguments": [
+            "/usr/bin/c++",
+            "-c",
+            "CMakeCXXCompilerId.cpp"
+        ],
+        "directory": "/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb/build/CMakeFiles/3.18.4/CompilerIdCXX",
+        "file": "CMakeCXXCompilerId.cpp"
+    },
+    {
+        "arguments": [
+            "/usr/bin/c++",
+            "-c",
+            "-DLEVELDB_PLATFORM_POSIX=1",
+            "-I/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb/build/include",
+            "-I/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb",
+            "-I/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb/include",
+            "-g",
+            "-std=c++11",
+            "-o",
+            "CMakeFiles/arena_test.dir/util/arena_test.cc.o",
+            "../util/arena_test.cc"
+        ],
+        "directory": "/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb/build",
+        "file": "../util/arena_test.cc"
+    },
+    {
+        "arguments": [
+            "/usr/bin/c++",
+            "-c",
+            "-DLEVELDB_PLATFORM_POSIX=1",
+            "-I/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb/build/include",
+            "-I/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb",
+            "-I/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb/include",
+            "-g",
+            "-std=c++11",
+            "-o",
+            "CMakeFiles/db_bench.dir/benchmarks/db_bench.cc.o",
+            "../benchmarks/db_bench.cc"
+        ],
+        "directory": "/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb/build",
+        "file": "../benchmarks/db_bench.cc"
+    },
+    {
+        "arguments": [
+            "/usr/bin/c++",
+            "-c",
+            "-DLEVELDB_COMPILE_LIBRARY",
+            "-DLEVELDB_PLATFORM_POSIX=1",
+            "-I/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb/build/include",
+            "-I/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb",
+            "-I/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb/include",
+            "-g",
+            "-std=c++11",
+            "-o",
+            "CMakeFiles/leveldb.dir/db/table_cache.cc.o",
+            "../db/table_cache.cc"
+        ],
+        "directory": "/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb/build",
+        "file": "../db/table_cache.cc"
+    },
+    {
+        "arguments": [
+            "/usr/bin/cc",
+            "-c",
+            "-std=c11",
+            "-o",
+            "CMakeFiles/cmTC_d62b3.dir/CMAKE_SIZEOF_UNSIGNED_SHORT.c.o",
+            "../CheckTypeSize/CMAKE_SIZEOF_UNSIGNED_SHORT.c"
+        ],
+        "directory": "/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb/build/CMakeFiles/CMakeTmp",
+        "file": "../CheckTypeSize/CMAKE_SIZEOF_UNSIGNED_SHORT.c"
+    },
+    {
+        "arguments": [
+            "/usr/bin/c++",
+            "-c",
+            "-DLEVELDB_COMPILE_LIBRARY",
+            "-DLEVELDB_PLATFORM_POSIX=1",
+            "-I/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb/build/include",
+            "-I/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb",
+            "-I/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb/include",
+            "-g",
+            "-std=c++11",
+            "-o",
+            "CMakeFiles/leveldb.dir/table/filter_block.cc.o",
+            "../table/filter_block.cc"
+        ],
+        "directory": "/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb/build",
+        "file": "../table/filter_block.cc"
+    },
+    {
+        "arguments": [
+            "/usr/bin/c++",
+            "-c",
+            "-DLEVELDB_PLATFORM_POSIX=1",
+            "-I/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb/build/include",
+            "-I/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb",
+            "-I/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb/include",
+            "-g",
+            "-std=c++11",
+            "-o",
+            "CMakeFiles/dbformat_test.dir/db/dbformat_test.cc.o",
+            "../db/dbformat_test.cc"
+        ],
+        "directory": "/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb/build",
+        "file": "../db/dbformat_test.cc"
+    },
+    {
+        "arguments": [
+            "/usr/bin/c++",
+            "-c",
+            "-DLEVELDB_COMPILE_LIBRARY",
+            "-DLEVELDB_PLATFORM_POSIX=1",
+            "-I/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb/build/include",
+            "-I/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb",
+            "-I/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb/include",
+            "-g",
+            "-std=c++11",
+            "-o",
+            "CMakeFiles/leveldb.dir/table/two_level_iterator.cc.o",
+            "../table/two_level_iterator.cc"
+        ],
+        "directory": "/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb/build",
+        "file": "../table/two_level_iterator.cc"
+    },
+    {
+        "arguments": [
+            "/usr/bin/c++",
+            "-c",
+            "-DLEVELDB_COMPILE_LIBRARY",
+            "-DLEVELDB_PLATFORM_POSIX=1",
+            "-I/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb/build/include",
+            "-I/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb",
+            "-I/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb/include",
+            "-g",
+            "-std=c++11",
+            "-o",
+            "CMakeFiles/leveldb.dir/table/iterator.cc.o",
+            "../table/iterator.cc"
+        ],
+        "directory": "/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb/build",
+        "file": "../table/iterator.cc"
+    },
+    {
+        "arguments": [
+            "/usr/bin/c++",
+            "-c",
+            "-DLEVELDB_COMPILE_LIBRARY",
+            "-DLEVELDB_PLATFORM_POSIX=1",
+            "-I/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb/build/include",
+            "-I/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb",
+            "-I/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb/include",
+            "-g",
+            "-std=c++11",
+            "-o",
+            "CMakeFiles/leveldb.dir/table/table.cc.o",
+            "../table/table.cc"
+        ],
+        "directory": "/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb/build",
+        "file": "../table/table.cc"
+    },
+    {
+        "arguments": [
+            "/usr/bin/c++",
+            "-c",
+            "-DLEVELDB_PLATFORM_POSIX=1",
+            "-I/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb/build/include",
+            "-I/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb",
+            "-I/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb/include",
+            "-g",
+            "-std=c++11",
+            "-o",
+            "CMakeFiles/no_destructor_test.dir/util/no_destructor_test.cc.o",
+            "../util/no_destructor_test.cc"
+        ],
+        "directory": "/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb/build",
+        "file": "../util/no_destructor_test.cc"
+    },
+    {
+        "arguments": [
+            "/usr/bin/c++",
+            "-c",
+            "-DLEVELDB_PLATFORM_POSIX=1",
+            "-I/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb/build/include",
+            "-I/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb",
+            "-I/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb/include",
+            "-g",
+            "-std=c++11",
+            "-o",
+            "CMakeFiles/issue200_test.dir/issues/issue200_test.cc.o",
+            "../issues/issue200_test.cc"
+        ],
+        "directory": "/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb/build",
+        "file": "../issues/issue200_test.cc"
+    },
+    {
+        "arguments": [
+            "/usr/bin/cc",
+            "-c",
+            "-DLEVELDB_PLATFORM_POSIX=1",
+            "-I/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb/build/include",
+            "-I/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb",
+            "-I/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb/include",
+            "-Wstrict-prototypes",
+            "-g",
+            "-std=c11",
+            "-o",
+            "CMakeFiles/c_test.dir/db/c_test.c.o",
+            "../db/c_test.c"
+        ],
+        "directory": "/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb/build",
+        "file": "../db/c_test.c"
+    },
+    {
+        "arguments": [
+            "/usr/bin/c++",
+            "-c",
+            "-DLEVELDB_COMPILE_LIBRARY",
+            "-DLEVELDB_PLATFORM_POSIX=1",
+            "-I/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb/build/include",
+            "-I/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb",
+            "-I/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb/include",
+            "-g",
+            "-std=c++11",
+            "-o",
+            "CMakeFiles/leveldb.dir/util/env_posix.cc.o",
+            "../util/env_posix.cc"
+        ],
+        "directory": "/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb/build",
+        "file": "../util/env_posix.cc"
+    },
+    {
+        "arguments": [
+            "/usr/bin/c++",
+            "-c",
+            "-DLEVELDB_PLATFORM_POSIX=1",
+            "-I/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb/build/include",
+            "-I/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb",
+            "-I/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb/include",
+            "-g",
+            "-std=c++11",
+            "-o",
+            "CMakeFiles/version_set_test.dir/db/version_set_test.cc.o",
+            "../db/version_set_test.cc"
+        ],
+        "directory": "/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb/build",
+        "file": "../db/version_set_test.cc"
+    },
+    {
+        "arguments": [
+            "/usr/bin/c++",
+            "-c",
+            "-DLEVELDB_PLATFORM_POSIX=1",
+            "-I/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb/build/include",
+            "-I/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb",
+            "-I/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb/include",
+            "-g",
+            "-std=c++11",
+            "-o",
+            "CMakeFiles/crc32c_test.dir/util/crc32c_test.cc.o",
+            "../util/crc32c_test.cc"
+        ],
+        "directory": "/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb/build",
+        "file": "../util/crc32c_test.cc"
+    },
+    {
+        "arguments": [
+            "/usr/bin/cc",
+            "-c",
+            "-Wstrict-prototypes",
+            "-DCHECK_FUNCTION_EXISTS=sqlite3_open",
+            "-std=c11",
+            "-o",
+            "CMakeFiles/cmTC_55117.dir/CheckFunctionExists.c.o",
+            "../../../../../../../../../../../../usr/share/cmake-3.18/Modules/CheckFunctionExists.c"
+        ],
+        "directory": "/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb/build/CMakeFiles/CMakeTmp",
+        "file": "../../../../../../../../../../../../usr/share/cmake-3.18/Modules/CheckFunctionExists.c"
+    },
+    {
+        "arguments": [
+            "/usr/bin/c++",
+            "-c",
+            "-DLEVELDB_COMPILE_LIBRARY",
+            "-DLEVELDB_PLATFORM_POSIX=1",
+            "-I/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb/build/include",
+            "-I/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb",
+            "-I/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb/include",
+            "-g",
+            "-std=c++11",
+            "-o",
+            "CMakeFiles/leveldb.dir/table/format.cc.o",
+            "../table/format.cc"
+        ],
+        "directory": "/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb/build",
+        "file": "../table/format.cc"
+    },
+    {
+        "arguments": [
+            "/usr/bin/c++",
+            "-c",
+            "-DLEVELDB_COMPILE_LIBRARY",
+            "-DLEVELDB_PLATFORM_POSIX=1",
+            "-I/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb/build/include",
+            "-I/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb",
+            "-I/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb/include",
+            "-g",
+            "-std=c++11",
+            "-o",
+            "CMakeFiles/leveldb.dir/util/options.cc.o",
+            "../util/options.cc"
+        ],
+        "directory": "/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb/build",
+        "file": "../util/options.cc"
+    },
+    {
+        "arguments": [
+            "/usr/bin/c++",
+            "-c",
+            "-DLEVELDB_PLATFORM_POSIX=1",
+            "-I/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb/build/include",
+            "-I/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb",
+            "-I/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb/include",
+            "-g",
+            "-std=c++11",
+            "-o",
+            "CMakeFiles/hash_test.dir/util/hash_test.cc.o",
+            "../util/hash_test.cc"
+        ],
+        "directory": "/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb/build",
+        "file": "../util/hash_test.cc"
+    },
+    {
+        "arguments": [
+            "/usr/bin/c++",
+            "-c",
+            "-DLEVELDB_PLATFORM_POSIX=1",
+            "-I/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb/build/include",
+            "-I/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb",
+            "-I/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb/include",
+            "-g",
+            "-std=c++11",
+            "-o",
+            "CMakeFiles/coding_test.dir/util/coding_test.cc.o",
+            "../util/coding_test.cc"
+        ],
+        "directory": "/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb/build",
+        "file": "../util/coding_test.cc"
+    },
+    {
+        "arguments": [
+            "/usr/bin/c++",
+            "-c",
+            "-DLEVELDB_PLATFORM_POSIX=1",
+            "-I/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb/build/include",
+            "-I/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb",
+            "-I/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb/include",
+            "-g",
+            "-std=c++11",
+            "-o",
+            "CMakeFiles/table_test.dir/table/table_test.cc.o",
+            "../table/table_test.cc"
+        ],
+        "directory": "/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb/build",
+        "file": "../table/table_test.cc"
+    },
+    {
+        "arguments": [
+            "/usr/bin/c++",
+            "-c",
+            "-DLEVELDB_COMPILE_LIBRARY",
+            "-DLEVELDB_PLATFORM_POSIX=1",
+            "-I/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb/build/include",
+            "-I/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb",
+            "-I/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb/include",
+            "-g",
+            "-std=c++11",
+            "-o",
+            "CMakeFiles/leveldb.dir/table/merger.cc.o",
+            "../table/merger.cc"
+        ],
+        "directory": "/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb/build",
+        "file": "../table/merger.cc"
+    },
+    {
+        "arguments": [
+            "/usr/bin/cc",
+            "-c",
+            "-DCHECK_FUNCTION_EXISTS=malloc",
+            "-std=c11",
+            "-o",
+            "CMakeFiles/cmTC_adb93.dir/CheckFunctionExists.c.o",
+            "../../../../../../../../../../../../usr/share/cmake-3.18/Modules/CheckFunctionExists.c"
+        ],
+        "directory": "/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb/build/CMakeFiles/CMakeTmp",
+        "file": "../../../../../../../../../../../../usr/share/cmake-3.18/Modules/CheckFunctionExists.c"
+    },
+    {
+        "arguments": [
+            "/usr/bin/c++",
+            "-c",
+            "-DLEVELDB_COMPILE_LIBRARY",
+            "-DLEVELDB_PLATFORM_POSIX=1",
+            "-I/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb/build/include",
+            "-I/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb",
+            "-I/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb/include",
+            "-g",
+            "-std=c++11",
+            "-o",
+            "CMakeFiles/leveldb.dir/util/bloom.cc.o",
+            "../util/bloom.cc"
+        ],
+        "directory": "/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb/build",
+        "file": "../util/bloom.cc"
+    },
+    {
+        "arguments": [
+            "/usr/bin/c++",
+            "-c",
+            "-DLEVELDB_COMPILE_LIBRARY",
+            "-DLEVELDB_PLATFORM_POSIX=1",
+            "-I/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb/build/include",
+            "-I/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb",
+            "-I/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb/include",
+            "-g",
+            "-std=c++11",
+            "-o",
+            "CMakeFiles/leveldb.dir/db/builder.cc.o",
+            "../db/builder.cc"
+        ],
+        "directory": "/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb/build",
+        "file": "../db/builder.cc"
+    },
+    {
+        "arguments": [
+            "/usr/bin/c++",
+            "-c",
+            "-DLEVELDB_COMPILE_LIBRARY",
+            "-DLEVELDB_PLATFORM_POSIX=1",
+            "-I/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb/build/include",
+            "-I/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb",
+            "-I/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb/include",
+            "-g",
+            "-std=c++11",
+            "-o",
+            "CMakeFiles/leveldb.dir/db/repair.cc.o",
+            "../db/repair.cc"
+        ],
+        "directory": "/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb/build",
+        "file": "../db/repair.cc"
+    },
+    {
+        "arguments": [
+            "/usr/bin/c++",
+            "-c",
+            "-DLEVELDB_COMPILE_LIBRARY",
+            "-DLEVELDB_PLATFORM_POSIX=1",
+            "-I/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb/build/include",
+            "-I/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb",
+            "-I/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb/include",
+            "-g",
+            "-std=c++11",
+            "-o",
+            "CMakeFiles/leveldb.dir/util/coding.cc.o",
+            "../util/coding.cc"
+        ],
+        "directory": "/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb/build",
+        "file": "../util/coding.cc"
+    },
+    {
+        "arguments": [
+            "/usr/bin/c++",
+            "-c",
+            "-DLEVELDB_COMPILE_LIBRARY",
+            "-DLEVELDB_PLATFORM_POSIX=1",
+            "-I/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb/build/include",
+            "-I/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb",
+            "-I/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb/include",
+            "-g",
+            "-std=c++11",
+            "-o",
+            "CMakeFiles/leveldb.dir/db/log_reader.cc.o",
+            "../db/log_reader.cc"
+        ],
+        "directory": "/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb/build",
+        "file": "../db/log_reader.cc"
+    },
+    {
+        "arguments": [
+            "/usr/bin/c++",
+            "-c",
+            "-DLEVELDB_PLATFORM_POSIX=1",
+            "-I/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb/build/include",
+            "-I/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb",
+            "-I/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb/include",
+            "-g",
+            "-std=c++11",
+            "-o",
+            "CMakeFiles/version_edit_test.dir/db/version_edit_test.cc.o",
+            "../db/version_edit_test.cc"
+        ],
+        "directory": "/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb/build",
+        "file": "../db/version_edit_test.cc"
+    },
+    {
+        "arguments": [
+            "/usr/bin/c++",
+            "-c",
+            "-DLEVELDB_COMPILE_LIBRARY",
+            "-DLEVELDB_PLATFORM_POSIX=1",
+            "-I/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb/build/include",
+            "-I/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb",
+            "-I/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb/include",
+            "-g",
+            "-std=c++11",
+            "-o",
+            "CMakeFiles/leveldb.dir/util/filter_policy.cc.o",
+            "../util/filter_policy.cc"
+        ],
+        "directory": "/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb/build",
+        "file": "../util/filter_policy.cc"
+    },
+    {
+        "arguments": [
+            "/usr/bin/c++",
+            "-c",
+            "-DLEVELDB_PLATFORM_POSIX=1",
+            "-I/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb/build/include",
+            "-I/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb",
+            "-I/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb/include",
+            "-g",
+            "-std=c++11",
+            "-o",
+            "CMakeFiles/env_test.dir/util/env_test.cc.o",
+            "../util/env_test.cc"
+        ],
+        "directory": "/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb/build",
+        "file": "../util/env_test.cc"
+    },
+    {
+        "arguments": [
+            "/usr/bin/cc",
+            "-c",
+            "-Wstrict-prototypes",
+            "-DCHECK_FUNCTION_EXISTS=pthread_create",
+            "-std=c11",
+            "-o",
+            "CMakeFiles/cmTC_e1eb1.dir/CheckFunctionExists.c.o",
+            "../../../../../../../../../../../../usr/share/cmake-3.18/Modules/CheckFunctionExists.c"
+        ],
+        "directory": "/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb/build/CMakeFiles/CMakeTmp",
+        "file": "../../../../../../../../../../../../usr/share/cmake-3.18/Modules/CheckFunctionExists.c"
+    },
+    {
+        "arguments": [
+            "/usr/bin/c++",
+            "-c",
+            "-DLEVELDB_COMPILE_LIBRARY",
+            "-DLEVELDB_PLATFORM_POSIX=1",
+            "-I/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb/build/include",
+            "-I/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb",
+            "-I/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb/include",
+            "-g",
+            "-std=c++11",
+            "-o",
+            "CMakeFiles/leveldb.dir/db/db_iter.cc.o",
+            "../db/db_iter.cc"
+        ],
+        "directory": "/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb/build",
+        "file": "../db/db_iter.cc"
+    },
+    {
+        "arguments": [
+            "/usr/bin/c++",
+            "-c",
+            "-DLEVELDB_PLATFORM_POSIX=1",
+            "-I/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb/build/include",
+            "-I/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb",
+            "-I/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb/include",
+            "-g",
+            "-std=c++11",
+            "-o",
+            "CMakeFiles/filter_block_test.dir/table/filter_block_test.cc.o",
+            "../table/filter_block_test.cc"
+        ],
+        "directory": "/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb/build",
+        "file": "../table/filter_block_test.cc"
+    },
+    {
+        "arguments": [
+            "/usr/bin/c++",
+            "-c",
+            "-DLEVELDB_PLATFORM_POSIX=1",
+            "-I/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb/build/include",
+            "-I/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb",
+            "-I/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb/include",
+            "-g",
+            "-std=c++11",
+            "-o",
+            "CMakeFiles/fault_injection_test.dir/db/fault_injection_test.cc.o",
+            "../db/fault_injection_test.cc"
+        ],
+        "directory": "/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb/build",
+        "file": "../db/fault_injection_test.cc"
+    },
+    {
+        "arguments": [
+            "/usr/bin/c++",
+            "-c",
+            "-DLEVELDB_COMPILE_LIBRARY",
+            "-DLEVELDB_PLATFORM_POSIX=1",
+            "-I/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb/build/include",
+            "-I/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb",
+            "-I/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb/include",
+            "-g",
+            "-std=c++11",
+            "-o",
+            "CMakeFiles/leveldb.dir/util/status.cc.o",
+            "../util/status.cc"
+        ],
+        "directory": "/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb/build",
+        "file": "../util/status.cc"
+    },
+    {
+        "arguments": [
+            "/usr/bin/c++",
+            "-c",
+            "-DLEVELDB_PLATFORM_POSIX=1",
+            "-I/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb/build/include",
+            "-I/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb",
+            "-I/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb/include",
+            "-g",
+            "-std=c++11",
+            "-o",
+            "CMakeFiles/status_test.dir/util/status_test.cc.o",
+            "../util/status_test.cc"
+        ],
+        "directory": "/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb/build",
+        "file": "../util/status_test.cc"
+    },
+    {
+        "arguments": [
+            "/usr/bin/c++",
+            "-c",
+            "-DLEVELDB_COMPILE_LIBRARY",
+            "-DLEVELDB_PLATFORM_POSIX=1",
+            "-I/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb/build/include",
+            "-I/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb",
+            "-I/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb/include",
+            "-g",
+            "-std=c++11",
+            "-o",
+            "CMakeFiles/leveldb.dir/table/block_builder.cc.o",
+            "../table/block_builder.cc"
+        ],
+        "directory": "/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb/build",
+        "file": "../table/block_builder.cc"
+    },
+    {
+        "arguments": [
+            "/usr/bin/c++",
+            "-c",
+            "-DLEVELDB_PLATFORM_POSIX=1",
+            "-I/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb/build/include",
+            "-I/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb",
+            "-I/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb/include",
+            "-g",
+            "-std=c++11",
+            "-o",
+            "CMakeFiles/db_bench.dir/util/testharness.cc.o",
+            "../util/testharness.cc"
+        ],
+        "directory": "/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb/build",
+        "file": "../util/testharness.cc"
+    },
+    {
+        "arguments": [
+            "/usr/bin/cc",
+            "-c",
+            "-DCHECK_FUNCTION_EXISTS=snappy_compress",
+            "-std=c11",
+            "-o",
+            "CMakeFiles/cmTC_432f4.dir/CheckFunctionExists.c.o",
+            "../../../../../../../../../../../../usr/share/cmake-3.18/Modules/CheckFunctionExists.c"
+        ],
+        "directory": "/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb/build/CMakeFiles/CMakeTmp",
+        "file": "../../../../../../../../../../../../usr/share/cmake-3.18/Modules/CheckFunctionExists.c"
+    },
+    {
+        "arguments": [
+            "/usr/bin/c++",
+            "-c",
+            "-DLEVELDB_COMPILE_LIBRARY",
+            "-DLEVELDB_PLATFORM_POSIX=1",
+            "-I/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb/build/include",
+            "-I/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb",
+            "-I/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb/include",
+            "-g",
+            "-std=c++11",
+            "-o",
+            "CMakeFiles/leveldb.dir/util/cache.cc.o",
+            "../util/cache.cc"
+        ],
+        "directory": "/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb/build",
+        "file": "../util/cache.cc"
+    },
+    {
+        "arguments": [
+            "/usr/bin/c++",
+            "-c",
+            "-DLEVELDB_COMPILE_LIBRARY",
+            "-DLEVELDB_PLATFORM_POSIX=1",
+            "-I/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb/build/include",
+            "-I/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb",
+            "-I/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb/include",
+            "-g",
+            "-std=c++11",
+            "-o",
+            "CMakeFiles/leveldb.dir/table/block.cc.o",
+            "../table/block.cc"
+        ],
+        "directory": "/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb/build",
+        "file": "../table/block.cc"
+    },
+    {
+        "arguments": [
+            "/usr/bin/c++",
+            "-c",
+            "-DLEVELDB_COMPILE_LIBRARY",
+            "-DLEVELDB_PLATFORM_POSIX=1",
+            "-I/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb/build/include",
+            "-I/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb",
+            "-I/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb/include",
+            "-g",
+            "-std=c++11",
+            "-o",
+            "CMakeFiles/leveldb.dir/util/env.cc.o",
+            "../util/env.cc"
+        ],
+        "directory": "/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb/build",
+        "file": "../util/env.cc"
+    },
+    {
+        "arguments": [
+            "/usr/bin/cc",
+            "-c",
+            "CMakeCCompilerId.c"
+        ],
+        "directory": "/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb/build/CMakeFiles/3.18.4/CompilerIdC",
+        "file": "CMakeCCompilerId.c"
+    },
+    {
+        "arguments": [
+            "/usr/bin/c++",
+            "-c",
+            "-DLEVELDB_COMPILE_LIBRARY",
+            "-DLEVELDB_PLATFORM_POSIX=1",
+            "-I/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb/build/include",
+            "-I/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb",
+            "-I/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb/include",
+            "-g",
+            "-std=c++11",
+            "-o",
+            "CMakeFiles/leveldb.dir/db/db_impl.cc.o",
+            "../db/db_impl.cc"
+        ],
+        "directory": "/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb/build",
+        "file": "../db/db_impl.cc"
+    },
+    {
+        "arguments": [
+            "/usr/bin/c++",
+            "-c",
+            "-DLEVELDB_COMPILE_LIBRARY",
+            "-DLEVELDB_PLATFORM_POSIX=1",
+            "-I/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb/build/include",
+            "-I/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb",
+            "-I/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb/include",
+            "-g",
+            "-std=c++11",
+            "-o",
+            "CMakeFiles/leveldb.dir/db/write_batch.cc.o",
+            "../db/write_batch.cc"
+        ],
+        "directory": "/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb/build",
+        "file": "../db/write_batch.cc"
+    },
+    {
+        "arguments": [
+            "/usr/bin/c++",
+            "-c",
+            "-DLEVELDB_COMPILE_LIBRARY",
+            "-DLEVELDB_PLATFORM_POSIX=1",
+            "-I/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb/build/include",
+            "-I/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb",
+            "-I/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb/include",
+            "-g",
+            "-std=c++11",
+            "-o",
+            "CMakeFiles/leveldb.dir/helpers/memenv/memenv.cc.o",
+            "../helpers/memenv/memenv.cc"
+        ],
+        "directory": "/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb/build",
+        "file": "../helpers/memenv/memenv.cc"
+    },
+    {
+        "arguments": [
+            "/usr/bin/c++",
+            "-c",
+            "-DLEVELDB_PLATFORM_POSIX=1",
+            "-I/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb/build/include",
+            "-I/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb",
+            "-I/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb/include",
+            "-g",
+            "-std=c++11",
+            "-o",
+            "CMakeFiles/logging_test.dir/util/logging_test.cc.o",
+            "../util/logging_test.cc"
+        ],
+        "directory": "/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb/build",
+        "file": "../util/logging_test.cc"
+    },
+    {
+        "arguments": [
+            "/usr/bin/c++",
+            "-c",
+            "-DLEVELDB_PLATFORM_POSIX=1",
+            "-I/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb/build/include",
+            "-I/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb",
+            "-I/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb/include",
+            "-g",
+            "-std=c++11",
+            "-o",
+            "CMakeFiles/env_posix_test.dir/util/env_posix_test.cc.o",
+            "../util/env_posix_test.cc"
+        ],
+        "directory": "/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb/build",
+        "file": "../util/env_posix_test.cc"
+    },
+    {
+        "arguments": [
+            "/usr/bin/c++",
+            "-c",
+            "-DLEVELDB_PLATFORM_POSIX=1",
+            "-I/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb/build/include",
+            "-I/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb",
+            "-I/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb/include",
+            "-g",
+            "-std=c++11",
+            "-o",
+            "CMakeFiles/corruption_test.dir/db/corruption_test.cc.o",
+            "../db/corruption_test.cc"
+        ],
+        "directory": "/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb/build",
+        "file": "../db/corruption_test.cc"
+    },
+    {
+        "arguments": [
+            "/usr/bin/c++",
+            "-c",
+            "-DLEVELDB_COMPILE_LIBRARY",
+            "-DLEVELDB_PLATFORM_POSIX=1",
+            "-I/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb/build/include",
+            "-I/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb",
+            "-I/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb/include",
+            "-g",
+            "-std=c++11",
+            "-o",
+            "CMakeFiles/leveldb.dir/db/version_edit.cc.o",
+            "../db/version_edit.cc"
+        ],
+        "directory": "/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb/build",
+        "file": "../db/version_edit.cc"
+    },
+    {
+        "arguments": [
+            "/usr/bin/c++",
+            "-c",
+            "-I/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb/build/include",
+            "-I/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb",
+            "-I/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb/include",
+            "-g",
+            "-std=c++11",
+            "-o",
+            "CMakeFiles/leveldbutil.dir/db/leveldbutil.cc.o",
+            "../db/leveldbutil.cc"
+        ],
+        "directory": "/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb/build",
+        "file": "../db/leveldbutil.cc"
+    },
+    {
+        "arguments": [
+            "/usr/bin/c++",
+            "-c",
+            "-DLEVELDB_COMPILE_LIBRARY",
+            "-DLEVELDB_PLATFORM_POSIX=1",
+            "-I/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb/build/include",
+            "-I/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb",
+            "-I/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb/include",
+            "-g",
+            "-std=c++11",
+            "-o",
+            "CMakeFiles/leveldb.dir/table/table_builder.cc.o",
+            "../table/table_builder.cc"
+        ],
+        "directory": "/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb/build",
+        "file": "../table/table_builder.cc"
+    },
+    {
+        "arguments": [
+            "/usr/bin/c++",
+            "-c",
+            "-DLEVELDB_COMPILE_LIBRARY",
+            "-DLEVELDB_PLATFORM_POSIX=1",
+            "-I/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb/build/include",
+            "-I/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb",
+            "-I/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb/include",
+            "-g",
+            "-std=c++11",
+            "-o",
+            "CMakeFiles/leveldb.dir/db/version_set.cc.o",
+            "../db/version_set.cc"
+        ],
+        "directory": "/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb/build",
+        "file": "../db/version_set.cc"
+    },
+    {
+        "arguments": [
+            "/usr/bin/c++",
+            "-c",
+            "-DLEVELDB_COMPILE_LIBRARY",
+            "-DLEVELDB_PLATFORM_POSIX=1",
+            "-I/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb/build/include",
+            "-I/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb",
+            "-I/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb/include",
+            "-g",
+            "-std=c++11",
+            "-o",
+            "CMakeFiles/leveldb.dir/db/dbformat.cc.o",
+            "../db/dbformat.cc"
+        ],
+        "directory": "/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb/build",
+        "file": "../db/dbformat.cc"
+    },
+    {
+        "arguments": [
+            "/usr/bin/c++",
+            "-c",
+            "-DLEVELDB_PLATFORM_POSIX=1",
+            "-I/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb/build/include",
+            "-I/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb",
+            "-I/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb/include",
+            "-g",
+            "-std=c++11",
+            "-o",
+            "CMakeFiles/issue320_test.dir/issues/issue320_test.cc.o",
+            "../issues/issue320_test.cc"
+        ],
+        "directory": "/media/wx/Data/Books/Lang/C++/C++\u9879\u76ee/db/leveldb/build",
+        "file": "../issues/issue320_test.cc"
+    }
+]
